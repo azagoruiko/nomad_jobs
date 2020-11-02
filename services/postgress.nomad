@@ -32,7 +32,7 @@ job "postgres-server" {
       }
 
       config {
-        image = "postgres"
+        image = "postgres:12"
 
         port_map {
           db = 5432
