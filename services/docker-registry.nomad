@@ -37,13 +37,6 @@ job "docker-registry-job" {
       resources {
         cpu    = 100
         memory = 256
-
-        network {
-          mbits = 1
-          port  "web" {
-            static = 5000
-          }
-        }
       }
 
       service {
