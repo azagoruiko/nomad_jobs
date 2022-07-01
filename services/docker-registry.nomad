@@ -15,7 +15,7 @@ job "docker-registry-job" {
       mode     = "delay"
     }
 
-    task "dbwebapp" {
+    task "docker_registry" {
       driver = "docker"
 
       env {
@@ -37,6 +37,12 @@ job "docker-registry-job" {
       resources {
         cpu    = 100
         memory = 256
+
+        network {
+          port  "web" {
+            static = 5000
+          }
+        }
       }
 
       service {
