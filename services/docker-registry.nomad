@@ -1,7 +1,10 @@
 job "docker-registry-job" {
   datacenters = ["home"]
   type        = "service"
-
+  constraint {
+    attribute = "${node.class}"
+    value     = "storage"
+  }
   group "docker-registry" {
     count = 1
 
