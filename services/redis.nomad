@@ -28,11 +28,7 @@ job "redis-job" {
       delay = "15s"
       mode = "fail"
     }
-    ephemeral_disk {
-      sticky = true
-      migrate = true
-      size = 300
-    }
+
     task "redis" {
       driver = "docker"
  config {
@@ -45,7 +41,6 @@ job "redis-job" {
         cpu    = 500 # 500 MHz
         memory = 256 # 256MB
         network {
-          mbits = 10
           port "db" {
             static = 6379
           }

@@ -36,7 +36,6 @@ job "notebooks-job" {
         memory = 1024
 
         network {
-          mbits = 10
           port  "web" {}
         }
       }

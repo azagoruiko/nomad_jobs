@@ -29,10 +29,9 @@ job "loadbalancer" {
 
       resources {
         cpu    = 200
-        memory = 1024
+        memory = 256
 
         network {
-          mbits = 50
           port  "web" {
             static = 9999
           }

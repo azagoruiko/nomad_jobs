@@ -4,7 +4,7 @@ job "postgres-server" {
 
   constraint {
     attribute = "${node.class}"
-    value = "server"
+    value = "storage"
   }
 
   group "postgres-server" {
@@ -45,11 +45,9 @@ job "postgres-server" {
 
       resources {
         cpu    = 500
-        memory = 1024
+        memory = 512
 
         network {
-          mbits = 100
-
           port "db" {
             static = 5432
           }
