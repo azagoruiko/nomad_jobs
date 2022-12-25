@@ -3,7 +3,7 @@ job "redis-job" {
   type = "service"
   constraint {
     attribute = "${node.class}"
-    value = "server"
+    value = "guestworker"
   }
   update {
     max_parallel = 1
@@ -31,7 +31,7 @@ job "redis-job" {
 
     task "redis" {
       driver = "docker"
- config {
+      config {
         image = "redis:3.2"
         port_map {
           db = 6379
