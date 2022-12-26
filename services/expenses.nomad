@@ -2,6 +2,11 @@ job "google-expenses-service-job" {
   datacenters = ["home"]
   type        = "service"
 
+  constraint {
+    attribute = "${node.class}"
+    value = "guestworker"
+  }
+
   group "google-expenses" {
     count = 1
 

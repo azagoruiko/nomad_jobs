@@ -3,7 +3,7 @@ job "redis-job" {
   type = "service"
   constraint {
     attribute = "${node.class}"
-    value = "guestworker"
+    value = "server"
   }
   update {
     max_parallel = 1
@@ -39,7 +39,7 @@ job "redis-job" {
       }
       resources {
         cpu    = 500 # 500 MHz
-        memory = 256 # 256MB
+        memory = 128 # 256MB
         network {
           port "db" {
             static = 6379
