@@ -1,13 +1,21 @@
 job "attribute-matcher" {
   datacenters = ["home"]
   type        = "service"
+  
+  constraint {
+    attribute = "${node.class}"
+    value = "guestworker"
+  }
 
   group "attribute-matcher-group" {
-    count = 2
+    count = 1
 
     constraint {
-      operator = "distinct_hosts"
-      value = "true"
+      #operator = "distinct_hosts"
+      #value = "true"
+      
+      attribute = "${node.class}"
+      value = "guestworker"
     }
 
     restart {
@@ -26,19 +34,16 @@ job "attribute-matcher" {
         port_map {
           web = 8080
         }
-
-        volumes = [
-          "/var/nfs/:/var/nfs/",
-        ]
       }
 
       resources {
         cpu    = 300
-        memory = 1024
-
+        memory = 512
+     
         network {
-          mbits = 1
-          port "web" {}
+          port "web" {
+            static = 8080
+          }
         }
       }
 

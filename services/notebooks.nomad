@@ -2,6 +2,11 @@ job "notebooks-job" {
   datacenters = ["home"]
   type        = "service"
 
+  constraint {
+    attribute = "${node.class}"
+    value = "guestworker"
+  }
+
   group "notebooks" {
     count = 1
 
@@ -18,17 +23,13 @@ job "notebooks-job" {
       config {
         image = "jupyter/all-spark-notebook"
         args = [
-          "start-notebook.sh", "--notebook-dir=/var/nfs/notebooks",
+          "start-notebook.sh",
           "--NotebookApp.token=''",
         ]
 
         port_map {
           web = 8888
         }
-
-        volumes = [
-          "/var/nfs/:/var/nfs/",
-        ]
       }
 
       resources {
@@ -36,7 +37,6 @@ job "notebooks-job" {
         memory = 1024
 
         network {
-          mbits = 10
           port  "web" {}
         }
       }

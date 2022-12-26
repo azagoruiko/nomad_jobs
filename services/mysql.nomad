@@ -4,7 +4,7 @@ job "mysql-server" {
 
   constraint {
     attribute = "${node.class}"
-    value = "server"
+    value = "storage"
   }
 
   group "mysql-server" {
@@ -15,12 +15,6 @@ job "mysql-server" {
       interval = "5m"
       delay    = "25s"
       mode     = "delay"
-    }
-
-    ephemeral_disk {
-      migrate = true
-      size    = 300
-      sticky  = true
     }
 
     task "mysql-server" {
@@ -51,18 +45,16 @@ EOH
         }
 
         volumes = [
-          "/var/lib/mysql/:/var/nfs/mysql/",
+          "/var/nfs/mysql/:/var/lib/mysql/",
           "docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/",
         ]
       }
 
       resources {
-        cpu    = 500
-        memory = 1024
+        cpu    = 600
+        memory = 456
 
         network {
-          mbits = 100
-
           port "db" {
             static = 3306
           }

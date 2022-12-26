@@ -4,7 +4,7 @@ job "minio-job" {
 
   constraint {
     attribute = "${node.class}"
-    value = "server"
+    value = "storage"
   }
 
   group "minio" {
@@ -42,10 +42,9 @@ job "minio-job" {
 
       resources {
         cpu    = 800
-        memory = 750
+        memory = 256
 
         network {
-          mbits = 20
           port  "web" {
             static = 9000
           }

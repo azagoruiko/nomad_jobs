@@ -2,8 +2,13 @@ job "google-expenses-service-job" {
   datacenters = ["home"]
   type        = "service"
 
-  group "docker-registry" {
-    count = 2
+  constraint {
+    attribute = "${node.class}"
+    value = "guestworker"
+  }
+
+  group "google-expenses" {
+    count = 1
 
     constraint {
       operator = "distinct_hosts"
@@ -34,10 +39,9 @@ job "google-expenses-service-job" {
 
       resources {
         cpu    = 100
-        memory = 1024
+        memory = 512
 
         network {
-          mbits = 1
           port "web" {}
         }
       }
