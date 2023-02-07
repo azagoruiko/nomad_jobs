@@ -4,7 +4,7 @@ job "notebooks-job" {
 
   constraint {
     attribute = "${node.class}"
-    value = "guestworker"
+    value = "storage"
   }
 
   group "notebooks" {
@@ -34,7 +34,7 @@ job "notebooks-job" {
 
       resources {
         cpu    = 600
-        memory = 1024
+        memory = 600
 
         network {
           port  "web" {}

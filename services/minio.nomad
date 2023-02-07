@@ -42,7 +42,7 @@ job "minio-job" {
 
       resources {
         cpu    = 1100
-        memory = 400
+        memory = 800
 
         network {
           port  "web" {
