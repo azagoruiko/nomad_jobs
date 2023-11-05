@@ -31,9 +31,7 @@ job "attribute-matcher" {
       config {
         image = "127.0.0.1:9999/docker/attribute-matcher:0.0.8"
         
-        port_map {
-          web = 8080
-        }
+        ports = ["web"]
       }
 
       resources {
