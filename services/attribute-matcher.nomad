@@ -5,24 +5,25 @@ job "attribute-matcher" {
   constraint {
     attribute = "${node.class}"
     value = "ora-free"
-  }
+  #constraint {
+    #operator = "distinct_hosts"
+    #value = "true"
+  #}
 
   group "attribute-matcher-group" {
     count = 1
-
-    constraint {
-      #operator = "distinct_hosts"
-      #value = "true"
-      
-      attribute = "${node.class}"
-      value = "guestworker"
-    }
 
     restart {
       attempts = 10
       interval = "5m"
       delay    = "25s"
       mode     = "delay"
+    }
+
+    network {
+      port "web" {
+        static = 8080
+      }
     }
 
     task "attribute-matcher-task" {
