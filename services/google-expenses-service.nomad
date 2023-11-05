@@ -12,6 +12,12 @@ job "google-expenses-service-job" {
       mode     = "delay"
     }
 
+    network {
+      port "web" {
+        static = 8080
+      }
+    }
+
     task "google-expenses-service" {
       driver = "docker"
 
