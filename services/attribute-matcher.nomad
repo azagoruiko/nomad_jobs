@@ -4,7 +4,7 @@ job "attribute-matcher" {
   
   constraint {
     attribute = "${node.class}"
-    value = "guestworker"
+    value = "ora-free"
   }
 
   group "attribute-matcher-group" {
@@ -29,7 +29,7 @@ job "attribute-matcher" {
       driver = "docker"
 
       config {
-        image = "127.0.0.1:9999/docker/attribute-matcher:0.0.2"
+        image = "127.0.0.1:9999/docker/attribute-matcher:0.0.8"
         
         port_map {
           web = 8080
@@ -39,12 +39,6 @@ job "attribute-matcher" {
       resources {
         cpu    = 300
         memory = 512
-     
-        network {
-          port "web" {
-            static = 8080
-          }
-        }
       }
 
       service {
