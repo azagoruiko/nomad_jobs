@@ -38,7 +38,7 @@ job "attribute-matcher" {
 
       resources {
         cpu    = 800
-        memory = 812
+        memory = 612
       }
 
       service {
