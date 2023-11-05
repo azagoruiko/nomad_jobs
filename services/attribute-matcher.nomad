@@ -5,6 +5,7 @@ job "attribute-matcher" {
   constraint {
     attribute = "${node.class}"
     value = "ora-free"
+  }
   #constraint {
     #operator = "distinct_hosts"
     #value = "true"
