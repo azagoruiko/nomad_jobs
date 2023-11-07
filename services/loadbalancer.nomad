@@ -10,7 +10,11 @@ job "loadbalancer" {
       delay    = "25s"
       mode     = "delay"
     }
-
+    network {
+      port "web" {
+        static = 9999
+      }
+    }
     task "fabio" {
       driver = "docker"
 
@@ -21,21 +25,12 @@ job "loadbalancer" {
       config {
         network_mode = "host"
         image = "10.8.0.5:5000/fabiolb/fabio:1"
-
-        port_map {
-          web = 9999
-        }
+        ports = ["web"]
       }
 
       resources {
         cpu    = 200
         memory = 256
-
-        network {
-          port  "web" {
-            static = 9999
-          }
-        }
       }
 
       service {
