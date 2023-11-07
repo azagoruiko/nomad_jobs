@@ -20,7 +20,7 @@ job "loadbalancer" {
 
       config {
         network_mode = "host"
-        image = "fabiolb/fabio"
+        image = "10.8.0.5:5000/fabiolb/fabio:1"
 
         port_map {
           web = 9999
