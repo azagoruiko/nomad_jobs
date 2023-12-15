@@ -2,6 +2,11 @@ job "loadbalancer" {
   datacenters = ["home"]
   type        = "system"
 
+  constraint {
+    attribute = "${attr.cpu.arch}"
+    value = "amd64"
+  }
+
   group "loadbalancer" {
 
     restart {
