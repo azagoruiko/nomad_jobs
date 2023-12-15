@@ -1,6 +1,10 @@
 job "loadbalancer" {
   datacenters = ["home"]
   type        = "system"
+  constraint {
+    attribute = "${cpu.arch}"
+    value = "amd64"
+  }
 
   group "loadbalancer" {
 
