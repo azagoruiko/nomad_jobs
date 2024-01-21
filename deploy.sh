@@ -7,6 +7,6 @@ VER=$2
 
 TAG="${DOCKER_REPO}/${JOB_NAME}:${VER}"
 
-docker build -t "${TAG}" . && /
-docker push "${TAG}" && /
-nomad job run "services/${JOB_NAME}.nomad"
+cd docker/${JOB_NAME}
+docker build -t "${TAG}" . && docker push "${TAG}" && nomad job run "services/${JOB_NAME}.nomad"
+cd ../..
