@@ -73,6 +73,7 @@ EOH
           "--NotebookApp.token=''",
         ]
 
+        ports = [ "web" ]
         port_map {
           web = 8888
         }

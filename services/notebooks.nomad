@@ -26,6 +26,7 @@ job "notebooks-job" {
           "start-notebook.sh",
           "--NotebookApp.token=''",
         ]
+        ports = [ "web" ]
 
         port_map {
           web = 8888
