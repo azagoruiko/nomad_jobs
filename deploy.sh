@@ -10,7 +10,7 @@ TAG="${DOCKER_REPO}/${JOB_NAME}:${VER}"
 cd docker/${JOB_NAME}
 docker build -t "${TAG}" . && docker push "${TAG}"
 
-RESULT=$1
+RESULT=$?
 
 cd ../..
 if [ $RESULT -eq 0 ]; then
