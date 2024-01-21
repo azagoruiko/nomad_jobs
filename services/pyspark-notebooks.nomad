@@ -80,10 +80,6 @@ EOH
         ]
 
         ports = [ "web" ]
-
-        port_map {
-          web = {}
-        }
       }
 
       resources {
