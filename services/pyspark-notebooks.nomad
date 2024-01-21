@@ -16,6 +16,9 @@ job "notebooks-job2" {
       delay    = "25s"
       mode     = "delay"
     }
+    network {
+      port "web" {}
+    }
 
     task "notebooks-task2" {
       driver = "docker"
