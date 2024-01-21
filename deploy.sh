@@ -8,5 +8,12 @@ VER=$2
 TAG="${DOCKER_REPO}/${JOB_NAME}:${VER}"
 
 cd docker/${JOB_NAME}
-docker build -t "${TAG}" . && docker push "${TAG}" && nomad job run "services/${JOB_NAME}.nomad"
+docker build -t "${TAG}" . && docker push "${TAG}"
+
+RESULT=$1
+
 cd ../..
+if [ $RESULT -eq 0 ]; then
+  nomad job run "services/${JOB_NAME}.nomad"
+fi
+
