@@ -17,7 +17,9 @@ job "notebooks-job2" {
       mode     = "delay"
     }
     network {
-      port "web" {}
+      port "web" {
+        static = 8888
+      }
     }
 
     task "notebooks-task2" {
