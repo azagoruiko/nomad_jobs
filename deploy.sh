@@ -5,7 +5,7 @@ export DOCKER_REPO="10.8.0.5:5000"
 JOB_NAME=$1
 VER=$2
 
-TAG="${DOCKER_REPO}/{JOB_NAME}:${VER}"
+TAG="${DOCKER_REPO}/${JOB_NAME}:${VER}"
 
 docker build -t "${TAG}" . && /
 docker push "${TAG}" && /
