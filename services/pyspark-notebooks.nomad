@@ -17,12 +17,6 @@ job "notebooks-job2" {
       mode     = "delay"
     }
 
-    network {
-      port "web" {
-        static = 8888
-      }
-    }
-
     task "notebooks-task2" {
       driver = "docker"
       template {
@@ -79,7 +73,9 @@ EOH
           "--NotebookApp.token=''",
         ]
 
-        ports = [ "web" ]
+        port_map {
+          web = 8888
+        }
       }
 
       resources {
