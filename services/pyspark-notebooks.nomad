@@ -26,8 +26,6 @@ job "notebooks-job2" {
       driver = "docker"
       template {
         data = <<EOH
-SPARK_LOCAL_IP="{{ env "attr.unique.network.ip-address" }}"
-SPARK_LOCAL_HOSTNAME="{{ env "attr.unique.network.ip-address" }}"
 POSTGRES_JDBC_URL="{{ key "postgres.jdbc.url" }}"
 POSTGRES_JDBC_DRIVER="{{ key "postgres.jdbc.driver" }}"
 POSTGRES_JDBC_USER="{{ key "postgres.jdbc.user" }}"
