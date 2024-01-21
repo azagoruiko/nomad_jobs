@@ -7,5 +7,6 @@ RUN wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoo
 RUN wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.12.262/aws-java-sdk-1.12.262.jar
 RUN wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-core/1.12.262/aws-java-sdk-core-1.12.262.jar
 RUN wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.12.262/aws-java-sdk-s3-1.12.262.jar
+RUN wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-bundle-s3/1.12.262/aws-java-sdk-bundle-1.12.262.jar
 USER root
 RUN mv *.jar /usr/local/spark/jars/
