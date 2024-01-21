@@ -70,7 +70,7 @@ EOH
         env = true
       }
       config {
-        image = "10.8.0.5:5000/pyspark-notebooks:0.0.4"
+        image = "10.8.0.5:5000/pyspark-notebooks:0.0.5"
         args = [
           "start-notebook.sh",
           "--NotebookApp.token=''",
