@@ -82,7 +82,7 @@ EOH
         ports = [ "web" ]
 
         port_map {
-          web = 80
+          web = {}
         }
       }
 
