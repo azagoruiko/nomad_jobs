@@ -4,7 +4,7 @@ job "notebooks-job2" {
 
   constraint {
     attribute = "${node.class}"
-    value = "storage"
+    value = "guestworker"
   }
 
   group "notebooks-group2" {
