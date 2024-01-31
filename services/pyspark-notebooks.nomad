@@ -84,7 +84,7 @@ EOH
 
       resources {
         cpu    = 1500
-        memory = 25000
+        memory = 30000
       }
 
       service {
@@ -101,7 +101,7 @@ EOH
 
         check {
           type     = "http"
-          path     = "/"
+          path     = "/api/"
           interval = "10s"
           timeout  = "2s"
         }
