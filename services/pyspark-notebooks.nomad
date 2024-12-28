@@ -61,10 +61,7 @@ SERVICE_MATCHER_BASE_URL="{{ key "expenses/service/matcher/base_url" }}"
 SERVICE_GOALS_BASE_URL="{{ key "telegram/bot/accounter/goals.base.url" }}"
 SERVICE_SPREADSHEETS_BASE_URL="{{ key "expenses/google/base_url" }}"
 
-{{ range service "spark-master" }}
-SPARK_MASTER={{ .Address }}:7077
 
-{{ end }}
 EOH
         destination = "secrets.env"
         env = true
@@ -75,16 +72,12 @@ EOH
           "start-notebook.sh",
           "--NotebookApp.token=''",
         ]
-
-        ports = [ "web" ]
-        port_map {
-          web = 8888
-        }
+        ports = ["web"]
       }
 
       resources {
         cpu    = 1500
-        memory = 30000
+        memory = 15000
       }
 
       service {

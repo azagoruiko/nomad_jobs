@@ -45,6 +45,24 @@ EOF
       }
 
       template {
+        destination = "local/trino/catalog/kindle.properties"
+        data = <<EOF
+{{ range service "hive-metastore" }}
+connector.name=hive
+fs.native-s3.enabled=true
+
+s3.aws-access-key={{ key "consulting/object/storage/fs.s3a.access.key" }}
+s3.aws-secret-key={{ key "consulting/object/storage/fs.s3a.secret.key" }}
+s3.endpoint={{ key "consulting/object/storage/fs.s3a.endpoint" }}
+s3.region=us-east-1
+s3.path-style-access=true
+hive.metastore.uri=thrift://{{ .Address }}:{{ .Port }}
+{{ end }}
+
+EOF
+      }
+
+      template {
         destination = "local/trino/conf/s3.properties"
         data = <<EOF
 
