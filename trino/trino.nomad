@@ -10,7 +10,7 @@ job "trino" {
     count = 1
     network {
       port "http" {
-        static = 8080
+        static = 8081
       }
     }
 
