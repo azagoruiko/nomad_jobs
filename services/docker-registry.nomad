@@ -40,7 +40,7 @@ job "docker-registry-job" {
 
         network {
           port  "web" {
-            static = 5000
+            static = 5001
           }
         }
       }

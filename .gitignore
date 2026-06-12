@@ -1,0 +1,6 @@
+# Local editor metadata
+.idea/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
